@@ -34,4 +34,4 @@ We first feed our autoencoder with normal images.
 
 ## Improvement
 
-I will try to use data augmentation.
+I will try to use data augmentation and fine tuned model.
