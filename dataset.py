@@ -4,3 +4,4 @@ class Dataset:
         self.test_images = test_images
         self.length = len(train_images)
         self.image_shape = train_images[0].shape
+        #see what to add
