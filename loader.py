@@ -13,43 +13,24 @@ class Loader:
         self.path_val_data = os.getenv("PATH_TO_VALIDATION_IMAGES") + '/'
         self.path_val_data2 = os.getenv("PATH_TO_VALIDATION_IMAGES2") + '/'
         self.target_size = target_size
-        self.load_paths()
         self.load_images()
-    
-    def load_paths(self):
-        _train_dir = os.listdir(self.path_train_data)
-        _train_dir2 = os.listdir(self.path_train_data2)
-        _test_dir = os.listdir(self.path_test_data)
-        _test_dir2 = os.listdir(self.path_test_data2)
-        _val_dir = os.listdir(self.path_val_data)
-        _val_dir2 = os.listdir(self.path_val_data2)
 
-        self.train_dir = [self.path_train_data + path for path in _train_dir]
-        self.train_dir2 = [self.path_train_data2 + path for path in _train_dir2]
-        self.test_dir = [self.path_test_data + path for path in _test_dir]
-        self.test_dir2 = [self.path_test_data2 + path for path in _test_dir2]
-        self.val_dir = [self.path_val_data + path for path in _val_dir]
-        self.val_dir2 = [self.path_val_data2 + path for path in _val_dir2]
+    def process_data(self, data_path, label) :
+        _dirs = os.listdir(data_path)
+        _list_dirs = [data_path + path for path in _dirs]
+        _imgs, _labels = self.load_data(_list_dirs, label)
+        _imgs = [img for img in _imgs if img is not None]
+        return _imgs, _labels
+    
+    def load_data(self, path1, path2):
+        _data, _labels = self.process_data(path1, 0)
+        _data2, _labels2 = self.process_data(path2, 1)
+        return [concatenate((_data, _data2), axis=0), concatenate((_labels, _labels2), axis=0)]
 
     def load_images(self):
-        _train_img, _train_labels = self.load_data(self.train_dir, 0)
-        _train_img2, _train_labels2 = self.load_data(self.train_dir2, 1)
-        _test_img, _test_labels = self.load_data(self.test_dir, 0)
-        _test_img2, _test_labels2 = self.load_data(self.test_dir2, 1)
-        _val_img, _val_labels = self.load_data(self.val_dir, 0)
-        _val_img2, _val_labels2 = self.load_data(self.val_dir2, 1)
-        
-        _train_img = [img for img in _train_img if img is not None]
-        _train_img2 = [img for img in _train_img2 if img is not None]
-        _test_img = [img for img in _test_img if img is not None]
-        _test_img2 = [img for img in _test_img2 if img is not None]
-        _val_img = [img for img in _val_img if img is not None]
-        _val_img2 = [img for img in _val_img2 if img is not None]
-
-
-        self.train_data = [concatenate((_train_img, _train_img2), axis=0), concatenate((_train_labels, _train_labels2), axis=0)]
-        self.test_data = [concatenate((_test_img, _test_img2), axis=0), concatenate((_test_labels, _test_labels2), axis=0)]
-        self.val_data = [concatenate((_val_img, _val_img2), axis=0), concatenate((_val_labels, _val_labels2), axis=0)]
+        self.train_data = self.load_data(self.path_train_data, self.path_train_data2)
+        self.test_data = self.load_data(self.path_test_data, self.path_test_data2)
+        self.val_data = self.load_data(self.path_val_data, self.path_val_data2)
 
 
     def load_image(self, path) :
