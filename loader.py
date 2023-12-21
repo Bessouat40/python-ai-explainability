@@ -1,8 +1,7 @@
 import os
 from PIL import Image 
-from numpy import asarray, resize
+from numpy import asarray, resize, concatenate, stack
 from dataset import Dataset
-from numpy import concatenate, stack
 
 class Loader:
     def __init__(self, target_size) :
@@ -18,7 +17,7 @@ class Loader:
     def process_data(self, data_path, label) :
         _dirs = os.listdir(data_path)
         _list_dirs = [data_path + path for path in _dirs]
-        _imgs, _labels = self.load_data(_list_dirs, label)
+        _imgs, _labels = self.load_images_labels(_list_dirs, label)
         _imgs = [img for img in _imgs if img is not None]
         return _imgs, _labels
     
@@ -43,7 +42,7 @@ class Loader:
             return img_stack / 255.0
         except : None
         
-    def load_data(self, data_dir, label) :
+    def load_images_labels(self, data_dir, label) :
         _images = [self.load_image(image_dir) for image_dir in data_dir]
         _labels = [label for i in range(len(_images))]
         return [_images, _labels]
