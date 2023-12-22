@@ -1,6 +1,6 @@
 import os
 from PIL import Image 
-from numpy import asarray, resize, concatenate, stack
+from numpy import array, resize, concatenate, stack
 from dataset import Dataset
 
 class Loader:
@@ -34,12 +34,10 @@ class Loader:
 
     def load_image(self, path) :
         try:
-            img = Image.open(path)
-            img_resized = resize(asarray(img), self.target_size)
-
-            # Convert to three channels by stacking the grayscale image
-            img_stack = stack((img_resized,)*3, axis=-1)
-            return img_stack / 255.0
+            img = Image.open(path).convert('RGB')
+            img = img.resize((224,224))
+            np_image = array(img) / 255.0
+            return np_image
         except : None
         
     def load_images_labels(self, data_dir, label) :
