@@ -1,7 +1,7 @@
 import os
 from PIL import Image 
 from numpy import array, resize, concatenate, stack
-from dataset import Dataset
+from src.dataset import Dataset
 
 class Loader:
     def __init__(self, target_size) :
