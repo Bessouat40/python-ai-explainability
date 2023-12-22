@@ -1,2 +1,7 @@
+checkpoints
 logs
+model
+saved_model
+vgg16
 .env
+model.h5

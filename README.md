@@ -4,21 +4,13 @@ A python project to find anomaly in an Xray image.
 
 The aim is detect pneumonia in a thorax radiography and explain AI decision.
 
-## First method : Unsupervised method with autoencoders
+## Model
 
-We will first use autoencoders. Autoencoders is an encoder-decoder system that reconstructs input as the output.
+I use a `VGG16` model.
 
-![autoencoder](./media/autoencoder.png)
+## Results
 
-- Autoencoder will receive image as input, then it will encode this image in a low dimensional representation,
-
-- The second part is decoding, the aim of the encoder is reproduct the original input,
-
-- Then we will compare input and output to classify input image.
-
-### Training
-
-We first feed our autoencoder with normal images.
+![output](./media/output.png)
 
 ## Tensorboard
 
