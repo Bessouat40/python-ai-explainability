@@ -4,6 +4,9 @@ A python project to find anomaly in an Xray image.
 
 The aim is detect pneumonia in a thorax radiography and explain AI decision.
 
+**_Training data source :_**
+[database link](https://www.kaggle.com/datasets/tolgadincer/labeled-chest-xray-images)
+
 ## Model
 
 I use a `VGG16` model.
@@ -25,6 +28,26 @@ In your conda env :
 
 ```bash
 python train.py
+```
+
+## Training results with test set
+
+```bash
+-------------------- Dataset Summary --------------------
+
+Number of train images :  4684
+
+
+Number of test images :  586
+
+
+Number of validation images :  586
+
+
+Shape of each images :  (224, 224, 3)
+---------------------------------------------------------
+
+loss: 0.0611 - accuracy: 0.9795
 ```
 
 ## Results
