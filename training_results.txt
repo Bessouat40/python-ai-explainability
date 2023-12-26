@@ -1,0 +1,137 @@
+(tf_m1) macbook-air-de-roman:unsupervised-image-anomaly labess40$ python train.py 
+
+-------------------- Dataset Summary --------------------
+
+Number of train images :  5216
+
+
+Number of test images :  624
+
+
+Number of validation images :  16
+
+
+Shape of each images :  (224, 224, 3)
+---------------------------------------------------------
+-------------------- Dataset Summary --------------------
+
+Number of train images :  4684
+
+
+Number of test images :  586
+
+
+Number of validation images :  586
+
+
+Shape of each images :  (224, 224, 3)
+---------------------------------------------------------
+2023-12-26 10:47:51.536214: I metal_plugin/src/device/metal_device.cc:1154] Metal device set to: Apple M1
+2023-12-26 10:47:51.545584: I metal_plugin/src/device/metal_device.cc:296] systemMemory: 16.00 GB
+2023-12-26 10:47:51.545611: I metal_plugin/src/device/metal_device.cc:313] maxCacheSize: 5.33 GB
+2023-12-26 10:47:51.548946: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
+2023-12-26 10:47:51.552945: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
+Epoch 1/25
+2023-12-26 10:48:29.963901: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:117] Plugin optimizer for device_type GPU is enabled.
+37/37 [==============================] - ETA: 0s - loss: 0.5004 - accuracy: 0.7444  
+Epoch 1: val_accuracy improved from -inf to 0.83788, saving model to model_checkpoints/checkpoint-01-0.84.h5
+/Users/labess40/miniforge3/envs/tf_m1/lib/python3.11/site-packages/keras/src/engine/training.py:3103: UserWarning: You are saving your model as an HDF5 file via `model.save()`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')`.
+  saving_api.save_model(
+37/37 [==============================] - 214s 6s/step - loss: 0.5004 - accuracy: 0.7444 - val_loss: 0.3311 - val_accuracy: 0.8379
+Epoch 2/25
+37/37 [==============================] - ETA: 0s - loss: 0.2252 - accuracy: 0.9086  
+Epoch 2: val_accuracy improved from 0.83788 to 0.92833, saving model to model_checkpoints/checkpoint-02-0.93.h5
+37/37 [==============================] - 197s 5s/step - loss: 0.2252 - accuracy: 0.9086 - val_loss: 0.1764 - val_accuracy: 0.9283
+Epoch 3/25
+37/37 [==============================] - ETA: 0s - loss: 0.1897 - accuracy: 0.9253  
+Epoch 3: val_accuracy did not improve from 0.92833
+37/37 [==============================] - 201s 5s/step - loss: 0.1897 - accuracy: 0.9253 - val_loss: 0.1992 - val_accuracy: 0.9078
+Epoch 4/25
+37/37 [==============================] - ETA: 0s - loss: 0.1613 - accuracy: 0.9394  
+Epoch 4: val_accuracy improved from 0.92833 to 0.93174, saving model to model_checkpoints/checkpoint-04-0.93.h5
+37/37 [==============================] - 199s 5s/step - loss: 0.1613 - accuracy: 0.9394 - val_loss: 0.1539 - val_accuracy: 0.9317
+Epoch 5/25
+37/37 [==============================] - ETA: 0s - loss: 0.1211 - accuracy: 0.9539  
+Epoch 5: val_accuracy improved from 0.93174 to 0.94881, saving model to model_checkpoints/checkpoint-05-0.95.h5
+37/37 [==============================] - 194s 5s/step - loss: 0.1211 - accuracy: 0.9539 - val_loss: 0.1317 - val_accuracy: 0.9488
+Epoch 6/25
+37/37 [==============================] - ETA: 0s - loss: 0.1118 - accuracy: 0.9594  
+Epoch 6: val_accuracy improved from 0.94881 to 0.96416, saving model to model_checkpoints/checkpoint-06-0.96.h5
+37/37 [==============================] - 199s 5s/step - loss: 0.1118 - accuracy: 0.9594 - val_loss: 0.1104 - val_accuracy: 0.9642
+Epoch 7/25
+37/37 [==============================] - ETA: 0s - loss: 0.1262 - accuracy: 0.9535  
+Epoch 7: val_accuracy did not improve from 0.96416
+37/37 [==============================] - 201s 5s/step - loss: 0.1262 - accuracy: 0.9535 - val_loss: 0.1438 - val_accuracy: 0.9488
+Epoch 8/25
+37/37 [==============================] - ETA: 0s - loss: 0.1021 - accuracy: 0.9654  
+Epoch 8: val_accuracy improved from 0.96416 to 0.97270, saving model to model_checkpoints/checkpoint-08-0.97.h5
+37/37 [==============================] - 205s 6s/step - loss: 0.1021 - accuracy: 0.9654 - val_loss: 0.0763 - val_accuracy: 0.9727
+Epoch 9/25
+37/37 [==============================] - ETA: 0s - loss: 0.0727 - accuracy: 0.9731  
+Epoch 9: val_accuracy did not improve from 0.97270
+37/37 [==============================] - 203s 5s/step - loss: 0.0727 - accuracy: 0.9731 - val_loss: 0.0982 - val_accuracy: 0.9642
+Epoch 10/25
+37/37 [==============================] - ETA: 0s - loss: 0.0863 - accuracy: 0.9697  
+Epoch 10: val_accuracy did not improve from 0.97270
+37/37 [==============================] - 220s 6s/step - loss: 0.0863 - accuracy: 0.9697 - val_loss: 0.0832 - val_accuracy: 0.9676
+Epoch 11/25
+37/37 [==============================] - ETA: 0s - loss: 0.0597 - accuracy: 0.9808  
+Epoch 11: val_accuracy improved from 0.97270 to 0.97611, saving model to model_checkpoints/checkpoint-11-0.98.h5
+37/37 [==============================] - 241s 7s/step - loss: 0.0597 - accuracy: 0.9808 - val_loss: 0.0700 - val_accuracy: 0.9761
+Epoch 12/25
+37/37 [==============================] - ETA: 0s - loss: 0.0525 - accuracy: 0.9816  
+Epoch 12: val_accuracy did not improve from 0.97611
+37/37 [==============================] - 201s 5s/step - loss: 0.0525 - accuracy: 0.9816 - val_loss: 0.0985 - val_accuracy: 0.9625
+Epoch 13/25
+37/37 [==============================] - ETA: 0s - loss: 0.0853 - accuracy: 0.9658  
+Epoch 13: val_accuracy did not improve from 0.97611
+37/37 [==============================] - 208s 6s/step - loss: 0.0853 - accuracy: 0.9658 - val_loss: 0.2962 - val_accuracy: 0.8874
+Epoch 14/25
+37/37 [==============================] - ETA: 0s - loss: 0.0876 - accuracy: 0.9701  
+Epoch 14: val_accuracy improved from 0.97611 to 0.97952, saving model to model_checkpoints/checkpoint-14-0.98.h5
+37/37 [==============================] - 209s 6s/step - loss: 0.0876 - accuracy: 0.9701 - val_loss: 0.0684 - val_accuracy: 0.9795
+Epoch 15/25
+37/37 [==============================] - ETA: 0s - loss: 0.0553 - accuracy: 0.9812  
+Epoch 15: val_accuracy did not improve from 0.97952
+37/37 [==============================] - 229s 6s/step - loss: 0.0553 - accuracy: 0.9812 - val_loss: 0.0726 - val_accuracy: 0.9761
+Epoch 16/25
+37/37 [==============================] - ETA: 0s - loss: 0.0461 - accuracy: 0.9851  
+Epoch 16: val_accuracy did not improve from 0.97952
+37/37 [==============================] - 227s 6s/step - loss: 0.0461 - accuracy: 0.9851 - val_loss: 0.0850 - val_accuracy: 0.9693
+Epoch 17/25
+37/37 [==============================] - ETA: 0s - loss: 0.0411 - accuracy: 0.9857  
+Epoch 17: val_accuracy did not improve from 0.97952
+37/37 [==============================] - 222s 6s/step - loss: 0.0411 - accuracy: 0.9857 - val_loss: 0.0715 - val_accuracy: 0.9727
+Epoch 18/25
+37/37 [==============================] - ETA: 0s - loss: 0.0322 - accuracy: 0.9872  
+Epoch 18: val_accuracy did not improve from 0.97952
+37/37 [==============================] - 220s 6s/step - loss: 0.0322 - accuracy: 0.9872 - val_loss: 0.0599 - val_accuracy: 0.9778
+Epoch 19/25
+37/37 [==============================] - ETA: 0s - loss: 0.0398 - accuracy: 0.9844  
+Epoch 19: val_accuracy did not improve from 0.97952
+37/37 [==============================] - 216s 6s/step - loss: 0.0398 - accuracy: 0.9844 - val_loss: 0.0707 - val_accuracy: 0.9761
+Epoch 20/25
+37/37 [==============================] - ETA: 0s - loss: 0.0281 - accuracy: 0.9904  
+Epoch 20: val_accuracy did not improve from 0.97952
+37/37 [==============================] - 226s 6s/step - loss: 0.0281 - accuracy: 0.9904 - val_loss: 0.1445 - val_accuracy: 0.9505
+Epoch 21/25
+37/37 [==============================] - ETA: 0s - loss: 0.0207 - accuracy: 0.9925  
+Epoch 21: val_accuracy did not improve from 0.97952
+37/37 [==============================] - 225s 6s/step - loss: 0.0207 - accuracy: 0.9925 - val_loss: 0.0605 - val_accuracy: 0.9761
+Epoch 22/25
+37/37 [==============================] - ETA: 0s - loss: 0.0132 - accuracy: 0.9957  
+Epoch 22: val_accuracy improved from 0.97952 to 0.98464, saving model to model_checkpoints/checkpoint-22-0.98.h5
+37/37 [==============================] - 225s 6s/step - loss: 0.0132 - accuracy: 0.9957 - val_loss: 0.0569 - val_accuracy: 0.9846
+Epoch 23/25
+37/37 [==============================] - ETA: 0s - loss: 0.0134 - accuracy: 0.9944  
+Epoch 23: val_accuracy did not improve from 0.98464
+37/37 [==============================] - 262s 7s/step - loss: 0.0134 - accuracy: 0.9944 - val_loss: 0.0934 - val_accuracy: 0.9710
+Epoch 24/25
+37/37 [==============================] - ETA: 0s - loss: 0.0503 - accuracy: 0.9833  
+Epoch 24: val_accuracy did not improve from 0.98464
+37/37 [==============================] - 224s 6s/step - loss: 0.0503 - accuracy: 0.9833 - val_loss: 0.1188 - val_accuracy: 0.9556
+Epoch 25/25
+37/37 [==============================] - ETA: 0s - loss: 0.0332 - accuracy: 0.9883  
+Epoch 25: val_accuracy did not improve from 0.98464
+37/37 [==============================] - 210s 6s/step - loss: 0.0332 - accuracy: 0.9883 - val_loss: 0.0579 - val_accuracy: 0.9829
+19/19 - 10s - loss: 0.0611 - accuracy: 0.9795 - 10s/epoch - 501ms/step
