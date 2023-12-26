@@ -13,6 +13,8 @@ I use a `VGG16` model.
 
 ## M1 use
 
+You need to create a conda environment to increase your training performances :
+
 ```bash
 source ~/.zshrc
 conda create -n tf_m1 python=3.11
@@ -23,6 +25,14 @@ pip install tensorflow-metal
 ```
 
 ## Training
+
+First fill :
+
+```bash
+mv .env.example .env
+```
+
+Then fill `.env` file with your values.
 
 In your conda env :
 

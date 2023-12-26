@@ -1,12 +1,9 @@
 from src.loader import Loader
-from matplotlib import pyplot
-import scipy.ndimage as sp
-import matplotlib.pyplot as plt
-import numpy as np
+from utils.generics_functions import plot_activation
 import dotenv
 
 from tensorflow.keras.applications.vgg16 import VGG16
-from tensorflow.keras.layers import Input, Conv2D, Lambda, GlobalAveragePooling2D, Dense
+from tensorflow.keras.layers import GlobalAveragePooling2D, Dense
 from tensorflow.keras.models import Model
 from tensorflow.keras.applications.vgg16 import VGG16
 from tensorflow.keras import optimizers
@@ -56,25 +53,5 @@ model.evaluate(dataset.test_images, dataset.test_labels, verbose=2)
 
 model.save('model_miniforge')
 
-def plot_activation(img):
-    pred = model.predict(img[np.newaxis,:,:,:])
-    pred_class = int(pred > 0.5)
-    print('pred : ', pred_class)
-    weights = model.layers[-1].get_weights()[0]
-    class_weights = weights[:, 0]
-    intermediate = Model(model.input,
-                         model.get_layer("block5_conv3").output)
-    conv_output = intermediate.predict(img[np.newaxis,:,:,:])
-    conv_output = np.squeeze(conv_output)
-    h = int(img.shape[0]/conv_output.shape[0])
-    w = int(img.shape[1]/conv_output.shape[1])
-    act_maps = sp.zoom(conv_output, (h, w, 1), order=1)
-    out = np.dot(act_maps.reshape((img.shape[0]*img.shape[1],512)), 
-                 class_weights).reshape(img.shape[0],img.shape[1])
-    plt.imshow(img.astype('float32').reshape(img.shape[0],
-               img.shape[1],3))
-    plt.imshow(out, cmap='jet', alpha=0.35)
-    plt.title('Pneumonia' if pred_class == 1 else 'No Pneumonia')
-
-plot_activation(dataset.test_images[6])
+plot_activation(model, dataset.test_images[6])
 print(dataset.test_labels[6])
