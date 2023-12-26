@@ -26,7 +26,7 @@ pip install tensorflow-metal
 
 ## Training
 
-First fill :
+First create `.env` file :
 
 ```bash
 mv .env.example .env
